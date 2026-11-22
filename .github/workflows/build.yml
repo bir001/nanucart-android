@@ -5,7 +5,7 @@ on:
       site_url:
         description: "Your Nanucart website URL (end with /)"
         required: true
-        default: "https://bir001.github.io/nanucart/"
+        default: "https://bir001.github.io/Nanu-Cart/"
   push:
     paths:
       - "android-src.zip"
@@ -27,7 +27,7 @@ jobs:
         run: unzip -q android-src.zip -d src
       - name: Build APK
         working-directory: src
-        run: gradle assembleRelease --no-daemon -PsiteUrl="${{ inputs.site_url || 'https://bir001.github.io/nanucart/' }}" -PverCode=${{ github.run_number }}
+        run: gradle assembleRelease --no-daemon -PsiteUrl="${{ inputs.site_url || 'https://bir001.github.io/Nanu-Cart/' }}" -PverCode=${{ github.run_number }}
       - name: Name the APK
         run: cp src/app/build/outputs/apk/release/*.apk NanuCart.apk
       - name: Publish APK
